@@ -5,6 +5,8 @@ const imgs = Array.from(document.getElementsByTagName('img'));
 const mainNav = document.querySelector(".main-navigation");
 const p = Array.from(document.getElementsByTagName('p'));
 const btn = document.querySelectorAll(".btn");
+const nav = document.querySelector("nav")
+
 
 
 //navLink Events (2 out of 10)
@@ -107,7 +109,13 @@ btn.forEach(button =>{ //10
 })
 
 btn.forEach(button =>{ //11
-    button.addEventListener("mouseup", () => {
+    button.addEventListener("mouseup", (e) => {
         button.style.width = "50%";
+        e.stopPropagation(); //propagration
     })
 })
+
+//prevent default
+document.querySelector('a').addEventListener("click", (e) => {
+    e.preventDefault();
+});
