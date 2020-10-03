@@ -4,6 +4,7 @@ const funBus = document.querySelector('.logo-heading');
 const imgs = Array.from(document.getElementsByTagName('img'));
 const mainNav = document.querySelector(".main-navigation");
 const p = Array.from(document.getElementsByTagName('p'));
+const btn = document.querySelectorAll(".btn");
 
 
 //navLink Events (2 out of 10)
@@ -74,8 +75,39 @@ document.addEventListener("scroll", () =>{ //6
     document.body.style.color= "grey";
 })
 
-p.forEach(para => {
+//p plagrism alert on copy
+p.forEach(para => { //7
     para.addEventListener("copy", () => {
         para.textContent = "DON'T STEAL MY WORK!";
+    })
+})
+
+//Keydown background color change
+window.addEventListener("keydown", (e) => { //8
+    console.log(e.key)
+    if(e.key == "b"){
+        document.body.style.background = "black";
+    }
+    else{
+        document.body.style.background = "grey";
+    }
+
+})
+
+//Keyup background revert
+window.addEventListener("keyup", () => { //9
+    document.body.style.background = "white";
+})
+
+//Mouse width adjustments on btn
+btn.forEach(button =>{ //10
+    button.addEventListener("mousedown", () => {
+        button.style.width = "100%";
+    })
+})
+
+btn.forEach(button =>{ //11
+    button.addEventListener("mouseup", () => {
+        button.style.width = "50%";
     })
 })
