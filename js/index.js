@@ -2,7 +2,9 @@
 const navLink = document.querySelectorAll('.nav-link');
 const funBus = document.querySelector('.logo-heading');
 const imgs = Array.from(document.getElementsByTagName('img'));
-console.log(imgs)
+const mainNav = document.querySelector(".main-navigation");
+const p = Array.from(document.getElementsByTagName('p'));
+
 
 //navLink Events (2 out of 10)
 navLink[0].addEventListener("mouseover", () => { //1
@@ -43,13 +45,19 @@ navLink[3].addEventListener("mouseleave", () => { //2
     navLink[3].style.fontWeight = "unset";
 });
 
-//funBus.addEventListener()
+//Bus Fun change on resize
+window.addEventListener("resize", (e) => { //3
+    console.log(e)
+    funBus.textContent = "Bus Fun";
+})
 
+//Imgs scale changes on clicks
 imgs.forEach(pic => { //4
     pic.addEventListener("click", () => {
         console.log(pic)
         pic.style.transform = "scale(1.3)";
-        pic.style.transition = 'transform 2s'
+        pic.style.transition = 'transform 1s'
+        mainNav.style.zIndex = '2'
     });
 })
 
@@ -59,4 +67,15 @@ imgs.forEach(pic => { //5
         pic.style.transform = "scale(1)";
         pic.style.transition = 'transform 2s'
     });
+})
+
+//Document font color change on scroll
+document.addEventListener("scroll", () =>{ //6
+    document.body.style.color= "grey";
+})
+
+p.forEach(para => {
+    para.addEventListener("copy", () => {
+        para.textContent = "DON'T STEAL MY WORK!";
+    })
 })
