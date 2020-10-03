@@ -116,6 +116,6 @@ btn.forEach(button =>{ //11
 })
 
 //prevent default
-document.querySelector('a').addEventListener("click", (e) => {
+document.querySelector('a').addEventListener("click", function(e) {
     e.preventDefault();
 });
